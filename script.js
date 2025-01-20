@@ -58,13 +58,26 @@ form.addEventListener("submit", function (event) {
 
   class petObj {
     constructor(_petName, _ownerName, _species, _breed) {
-      this.petName = pet;
-      this.ownerName = owner;
-      this.species = species;
-      this.breed = breed;
+      this.petName = _petName;
+      this.ownerName = _ownerName;
+      this.species = _species;
+      this.breed = _breed;
+    }
+    padrone(otherPet) {
+      if (this.ownerName === otherPet.ownerName) {
+        console.log(true);
+      } else {
+        console.log(false);
+      }
     }
   }
+
+  const pet2 = new petObj(pet, owner, species, breed);
+  const pet3 = new petObj(pet, owner, species, breed);
+
   const lista1 = document.createElement("li");
-  lista1.textContent = structuredClone(petObj);
+  lista1.textContent = JSON.stringify(pet2, null, 2);
   lista.appendChild(lista1);
+
+  form.reset();
 });
