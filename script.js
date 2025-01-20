@@ -23,9 +23,10 @@ const marco = new User("Marco", "Rossi", "25", "Napoli");
 const giorgio = new User("Giorgio", "Rossi", "25", "Napoli");
 marco.confronto(giorgio);
 giorgio.confronto(marco);
+
 //Esercizio 2
-class pet {
-  constructor(_petName, _ownerName, _species, _breed) {
+/*class pet {
+  constructor([_petName, _ownerName, _species, _breed]) {
     this.petName = _petName;
     this.ownerName = _ownerName;
     this.species = _species;
@@ -42,4 +43,28 @@ class pet {
 const pet1 = new pet("Billy", "Giorgio", "cane", "labrador");
 const pet2 = new pet("Bob", "Giorgio", "gatto", "persiano");
 pet1.padrone(pet2);
-pet2.padrone(pet1);
+pet2.padrone(pet1);*/
+
+const form = document.querySelector("#objectForm");
+const lista = document.querySelector("ul");
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const pet = document.querySelector("#petName").value;
+  const owner = document.querySelector("#ownerName").value;
+  const species = document.querySelector("#species").value;
+  const breed = document.querySelector("#breed").value;
+  const lista = document.querySelector("#list");
+
+  class petObj {
+    constructor(_petName, _ownerName, _species, _breed) {
+      this.petName = pet;
+      this.ownerName = owner;
+      this.species = species;
+      this.breed = breed;
+    }
+  }
+  const lista1 = document.createElement("li");
+  lista1.textContent = structuredClone(petObj);
+  lista.appendChild(lista1);
+});
