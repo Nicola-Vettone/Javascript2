@@ -76,7 +76,7 @@ form.addEventListener("submit", function (event) {
   const pet3 = new petObj(pet, owner, species, breed);
 
   const lista1 = document.createElement("li");
-  lista1.textContent = JSON.stringify(pet2, null, 2);
+  lista1.textContent = JSON.stringify(pet2);
   lista.appendChild(lista1);
 
   form.reset();
