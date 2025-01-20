@@ -69,7 +69,7 @@ form.addEventListener("submit", function (event) {
 
   const lista1 = document.createElement("li");
   lista1.textContent = JSON.stringify(
-    "Pet Name : " + pet2.petName + " " + "Owner Name : " + pet2.ownerName + " " + "Species: " + pet2.species + " " + "Breed: " + pet2.breed
+    "Pet Name :" + pet2.petName + " " + "Owner Name : " + pet2.ownerName + " " + "Species: " + pet2.species + " " + "Breed: " + pet2.breed
   );
   lista.appendChild(lista1);
 
