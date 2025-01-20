@@ -63,20 +63,14 @@ form.addEventListener("submit", function (event) {
       this.species = _species;
       this.breed = _breed;
     }
-    padrone(otherPet) {
-      if (this.ownerName === otherPet.ownerName) {
-        console.log(true);
-      } else {
-        console.log(false);
-      }
-    }
   }
 
   const pet2 = new petObj(pet, owner, species, breed);
-  const pet3 = new petObj(pet, owner, species, breed);
 
   const lista1 = document.createElement("li");
-  lista1.textContent = JSON.stringify(pet2);
+  lista1.textContent = JSON.stringify(
+    "Pet Name : " + pet2.petName + " " + "Owner Name : " + pet2.ownerName + " " + "Species: " + pet2.species + " " + "Breed: " + pet2.breed
+  );
   lista.appendChild(lista1);
 
   form.reset();
