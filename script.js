@@ -47,14 +47,9 @@ pet2.padrone(pet1);*/
 
 const form = document.querySelector("#objectForm");
 const lista = document.querySelector("ul");
+const array = [];
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-
-  const pet = document.querySelector("#petName").value;
-  const owner = document.querySelector("#ownerName").value;
-  const species = document.querySelector("#species").value;
-  const breed = document.querySelector("#breed").value;
-  const lista = document.querySelector("#list");
 
   class petObj {
     constructor(_petName, _ownerName, _species, _breed) {
@@ -65,13 +60,30 @@ form.addEventListener("submit", function (event) {
     }
   }
 
-  const pet2 = new petObj(pet, owner, species, breed);
+  function listOwner() {
+    const pet = document.querySelector("#petName");
+    const owner = document.querySelector("#ownerName");
+    const species = document.querySelector("#species");
+    const breed = document.querySelector("#breed");
+    const pet2 = new petObj(pet.value, owner.value, species.value, breed.value);
+    const lista = document.querySelector("#list");
+    array.push(pet2);
+    console.log(array);
+    for (let index = 1; index < array.length; index++) {
+      array.forEach((element) => {
+        if (element.ownerName === array[index].ownerName) {
+          console.log(true);
+        } else {
+          console.log(false);
+        }
+      });
+    }
 
-  const lista1 = document.createElement("li");
-  lista1.textContent = JSON.stringify(
-    "Pet Name :" + pet2.petName + " " + "Owner Name : " + pet2.ownerName + " " + "Species: " + pet2.species + " " + "Breed: " + pet2.breed
-  );
-  lista.appendChild(lista1);
+    const lista1 = document.createElement("li");
+    lista1.textContent = "Pet Name :" + pet2.petName + " " + "Owner Name : " + pet2.ownerName + " " + "Species: " + pet2.species + " " + "Breed: " + pet2.breed;
+    lista.appendChild(lista1);
 
-  form.reset();
+    form.reset();
+  }
+  listOwner();
 });
